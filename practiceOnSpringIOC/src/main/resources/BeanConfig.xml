@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--Here I will be configaring the bean
+    Beans are the object that will be created and managed by the spring framework.-->
+    <context:property-placeholder location="classpath:application.properties"/>
+    <context:annotation-config/>
+
+    <!-- Configuring the Student bean.-->
+    <bean id="student" class="com.redstevo.practiceonspringioc.Student" />
+
+    <bean id="studentDisplay" class="com.redstevo.practiceonspringioc.StudentDisplay" />
+
+</beans>
