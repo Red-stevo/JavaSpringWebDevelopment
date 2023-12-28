@@ -21,8 +21,12 @@ public class VendorDAO implements RepositoryTransaction{
     }
 
     @Override
-    public void createVendor(Object[] vendorObject) {
+    public String createVendor(Object[] vendorObject) {
+        String sql = "INSERT INTO VendorDetails VALUES (?, ?, ?, ?)";
 
+        int numberOfRowsAffected = jdbcTemplate.update(sql, vendorObject);
+
+        return "Vendor creation successful, "+numberOfRowsAffected+" Rows Affected.";
     }
 
     @Override

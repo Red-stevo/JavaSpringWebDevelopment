@@ -8,7 +8,7 @@ public interface RepositoryTransaction {
 
     void deleteVendor(String vendorId); //method to delete vendor info from the database.
 
-    void createVendor(Object[] vendorObject); //insert a vendor id to the database.
+    String createVendor(Object[] vendorObject); //insert a vendor id to the database.
 
     void updateVendor(String vendorId, Object[] vendorObject); //method to update the vendor info in the database.
 
