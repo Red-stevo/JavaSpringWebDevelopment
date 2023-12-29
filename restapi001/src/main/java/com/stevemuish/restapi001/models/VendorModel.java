@@ -44,4 +44,11 @@ public class VendorModel {
     public void setVendorAddress(String vendorAddress) {
         this.vendorAddress = vendorAddress;
     }
+
+    public String toString()
+    {
+        return "vendorName : " + vendorName + "vendorId : " + vendorId
+                + "vendorAddress : " + vendorAddress +
+                "vendorPhoneNumber : " + vendorPhoneNumber;
+    }
 }

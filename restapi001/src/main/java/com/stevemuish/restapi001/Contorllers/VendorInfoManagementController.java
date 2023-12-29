@@ -1,6 +1,7 @@
 package com.stevemuish.restapi001.Contorllers;
 
 import com.stevemuish.restapi001.Services.CreateVendor;
+import com.stevemuish.restapi001.Services.GetVendorInfoService;
 import com.stevemuish.restapi001.models.VendorModel;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,22 @@ public class VendorInfoManagementController {
         this.createVendor = createVendor;
     }
 
+
+    GetVendorInfoService getVendorInfoService;
+
+    @Autowired
+    public void setGetVendorInfoService(GetVendorInfoService getVendorInfoService) {
+        this.getVendorInfoService = getVendorInfoService;
+    }
+
     @GetMapping("/vendor-info/{id}")
-    public ResponseEntity<Object> getVendorInfo(@PathVariable String id)
+    public ResponseEntity<VendorModel> getVendorInfo(@PathVariable String id)
     {
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+        System.out.println("In the get mapping.");
+        VendorModel vendorModel = getVendorInfoService.getVendor(id);
+
+
+        return new ResponseEntity(vendorModel, HttpStatus.OK);
     }
 
     @GetMapping("/vendor-info")
@@ -56,8 +69,9 @@ public class VendorInfoManagementController {
     @DeleteMapping("/delete/{vendorId}")
     public ResponseEntity<String> deleteVendor(@PathVariable() String vendorId)
     {
+        String response = getVendorInfoService.deleteVendor(vendorId);
 
-        return new ResponseEntity<>("Deletion successful for is "+vendorId, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
     
 }

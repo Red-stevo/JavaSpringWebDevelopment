@@ -1,12 +1,15 @@
 package com.stevemuish.restapi001.repository;
 
+import com.stevemuish.restapi001.models.VendorModel;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public interface RepositoryTransaction {
 
-    Object[] getVendorInfo(String vendorId); //method to return vendor object.
+    VendorModel getVendorInfo(String vendorId); //method to return vendor object.
 
-    void deleteVendor(String vendorId); //method to delete vendor info from the database.
+    String deleteVendor(String vendorId); //method to delete vendor info from the database.
 
     String createVendor(Object[] vendorObject); //insert a vendor id to the database.
 

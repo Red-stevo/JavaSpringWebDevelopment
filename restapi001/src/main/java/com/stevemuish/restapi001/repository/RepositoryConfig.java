@@ -1,5 +1,6 @@
 package com.stevemuish.restapi001.repository;
 
+import com.stevemuish.restapi001.models.VendorModel;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -30,6 +31,12 @@ public class RepositoryConfig {
 
         return new DriverManagerDataSource(url, username, password);
 
+    }
+
+    @Bean
+    public VendorModel vendorModel()
+    {
+        return new VendorModel();
     }
 
 }
