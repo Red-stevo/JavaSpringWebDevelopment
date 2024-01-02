@@ -17,7 +17,8 @@ public class VendorController {
 
     //creating a new Vendor.
     @PostMapping("/register")
-    public ResponseEntity<String> createVendor(@RequestBody Map<String, Object> vendorMap) throws Exception
+    public ResponseEntity<String> createVendor(@RequestBody Map<String,
+            Object> vendorMap)
     {
 
         {
@@ -42,11 +43,30 @@ public class VendorController {
         return new ResponseEntity<>(vendorModel, HttpStatus.OK);
     }
 
+    //Deleting a vendor
+    @DeleteMapping("/delete-vendor/{vendorId}")
+    public ResponseEntity<String> deleteVendor(@PathVariable String vendorId)
+    {
+        {
+            System.out.println("""
+                    
+                    \t\tdeleteVendor(@PathVariable String vendorId)
+                    \t\tReceive a delete user request...
+                    
+                    """);
+        }
+
+        vendorOperationsRepository.deleteVendor(vendorId);
+
+        return new ResponseEntity<>("User deleted successfully", HttpStatus.OK);
+    }
+
 
     VendorOperationsRepository vendorOperationsRepository;
 
     @Autowired
-    public void setVendorOperationsRepository(VendorOperationsRepository vendorOperationsRepository) {
+    public void setVendorOperationsRepository(VendorOperationsRepository
+                                                          vendorOperationsRepository) {
         this.vendorOperationsRepository = vendorOperationsRepository;
     }
 

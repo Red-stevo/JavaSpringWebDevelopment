@@ -56,4 +56,19 @@ public class VendorOperationsRepository {
 
         return vendorModel;
     }
+
+    public void deleteVendor(String vendorId) {
+
+        {
+            System.out.println("""
+                    
+                    \t\tdeleteVendor(String vendorId)
+                    \t\tdeleting a vendor.
+                    
+                    """);
+        }
+
+        vendorOperationDao.deleteVendorById(vendorId);
+
+    }
 }

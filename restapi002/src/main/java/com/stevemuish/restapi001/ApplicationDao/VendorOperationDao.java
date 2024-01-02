@@ -50,8 +50,8 @@ public class VendorOperationDao {
         {
             System.out.println("""
                     
-                    getVendorById(String vendorId)
-                    getting data from the database...
+                    \t\tgetVendorById(String vendorId)
+                    \t\tgetting data from the database...
                     
                     """);
         }
@@ -60,5 +60,29 @@ public class VendorOperationDao {
         vendorModel = jdbcTemplate.queryForObject(selectSql, new BeanPropertyRowMapper<>(VendorModel.class),vendorId);
 
         return vendorModel;
+    }
+
+    public void deleteVendorById(String vendorId) {
+
+        {
+            System.out.println("""
+                    
+                    \t\tdeleteVendorById(String vendorId)
+                    \t\tremoving vendor from the database.
+                    
+                    """);
+        }
+
+        String deletionSql = "DELETE FROM VendorDetails WHERE VendorId = ?";
+
+       int noOfRowsAffected = jdbcTemplate.update(deletionSql,vendorId);
+
+        System.out.println("""
+                
+                \t\tDeletion successful
+                \t\t"""+noOfRowsAffected+ """ 
+                Rows Affected.
+                
+                """);
     }
 }
