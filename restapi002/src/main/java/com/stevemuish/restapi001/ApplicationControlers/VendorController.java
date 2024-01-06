@@ -62,6 +62,15 @@ public class VendorController {
     }
 
 
+    @PutMapping("/update")
+    public ResponseEntity<String> updateUserData(@RequestBody VendorModel vendorModel)
+    {
+
+
+            return new ResponseEntity<>("Update successful", HttpStatus.OK);
+    }
+
+
     VendorOperationsRepository vendorOperationsRepository;
 
     @Autowired
