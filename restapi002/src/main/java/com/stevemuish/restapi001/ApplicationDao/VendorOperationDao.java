@@ -84,5 +84,8 @@ public class VendorOperationDao {
                 Rows Affected.
                 
                 """);
+        String updateSql = "UPDATE VendorDetails SET  = ? WHERE VendorId = ? ";
     }
+
+
 }

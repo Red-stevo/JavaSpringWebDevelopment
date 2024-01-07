@@ -1,6 +1,5 @@
 package com.stevemuish.restapi001.ApplicationControlers;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.stevemuish.restapi001.ApplicationModels.VendorModel;
 import com.stevemuish.restapi001.VendorRepository.VendorOperationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -34,7 +32,7 @@ public class VendorController {
         {
             System.out.println("""
                     
-                    \t\tReceived a Http get request\n
+                    \t\tReceived a Http get request
                     
                     """);
         }
@@ -62,12 +60,12 @@ public class VendorController {
     }
 
 
-    @PutMapping("/update")
-    public ResponseEntity<String> updateUserData(@RequestBody VendorModel vendorModel)
+    @PutMapping("/update/{vendorPath}")
+    public ResponseEntity<String> updateUserData(
+            @PathVariable String vendorPath, @RequestParam String value)
     {
-
-
-            return new ResponseEntity<>("Update successful", HttpStatus.OK);
+        vendorOperationsRepository.updateVendorData(vendorPath, value);
+        return new ResponseEntity<>("Update successful", HttpStatus.OK);
     }
 
 

@@ -71,4 +71,21 @@ public class VendorOperationsRepository {
         vendorOperationDao.deleteVendorById(vendorId);
 
     }
+
+    public void updateVendorData(String column, String value) {
+
+        {
+            System.out.println("""
+            updateVendorData(VendorModel vendorModel)...>>>>>
+            Processing vendor data update...>>>>
+            
+            """);
+        }
+
+        Object[] vendorObject = {vendorModel.getVendorName(),vendorModel.getVendorId(),
+        vendorModel.getVendorAddress(), vendorModel.getVendorPhoneNumber()};
+
+
+
+    }
 }
